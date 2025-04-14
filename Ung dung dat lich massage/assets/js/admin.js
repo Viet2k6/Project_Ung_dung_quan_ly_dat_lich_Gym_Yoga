@@ -9,7 +9,6 @@ if (!localStorage.getItem("scheduleList")) {
 
 function showSection(sectionId) {
     try {
-        // Ensure both sections exist before attempting to toggle
         const scheduleSection = document.getElementById("schedule-section");
         const serviceSection = document.getElementById("service-section");
 
@@ -17,11 +16,9 @@ function showSection(sectionId) {
             throw new Error("One or more sections not found in the DOM.");
         }
 
-        // Hide both sections
         scheduleSection.classList.add("hidden");
         serviceSection.classList.add("hidden");
 
-        // Show the selected section
         const targetSection = document.getElementById(`${sectionId}-section`);
         if (!targetSection) {
             throw new Error(`Section with ID ${sectionId}-section not found.`);
@@ -284,9 +281,7 @@ function showConfirm(message, onYes) {
     }
 }
 
-// Initialize the Dashboard
 document.addEventListener("DOMContentLoaded", () => {
-    // Schedule Management Event Listeners
     document.getElementById("closeModal").addEventListener("click", () => {
         document.getElementById("modal").style.display = "none";
     });
@@ -307,7 +302,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("closeSuccessModal").addEventListener("click", closeSuccessModal);
     document.getElementById("closeEditedModal").addEventListener("click", closeEditedModal);
 
-    // Service Management Event Listeners
     const serviceTable = document.getElementById("serviceTable");
     const addServiceBtn = document.getElementById("addServiceBtn");
     const serviceModal = document.getElementById("serviceModal");
@@ -436,7 +430,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Initial Render
     fetchScheduleList();
     setupFilters();
     renderServiceList();

@@ -140,7 +140,6 @@ th {
     z-index: 9999;
 }
 
-/* Modal Content Styling */
 .modal-content {
     background-color: white;
     margin: 10% auto; 
@@ -152,7 +151,6 @@ th {
     animation: fadeIn 0.3s ease-in-out; 
 }
 
-/* Modal Header */
 .modal-content h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
@@ -160,7 +158,6 @@ th {
     color: #333333;
 }
 
-/* Close Button Styling */
 .close {
     position: absolute;
     top: 10px;
@@ -175,7 +172,6 @@ th {
     color: #333333;
 }
 
-/* Form Labels and Inputs */
 .modal-content form label {
     display: block;
     margin-bottom: 5px;
@@ -200,7 +196,6 @@ th {
     outline: none;
 }
 
-/* Submit Button */
 .modal-content form button {
     background-color: #3b82f6; 
     color: white; 
@@ -227,7 +222,6 @@ th {
     }
 }
 
-/* Delete Confirmation Modal Styling */
 #deleteModal .modal-content {
     text-align: center;
 }
@@ -265,7 +259,6 @@ th {
     background-color: #4b5563; 
 }
 
-/* Success Modal Styling */
 #successModal .modal-content {
     text-align: center; 
 }
@@ -288,7 +281,6 @@ th {
     text-align: center; 
 }
 
-/* Service Management Specific Styles */
 .service-image {
     width: 100px;
     height: 100px;
@@ -318,7 +310,6 @@ th {
     display: none;
 }
 
-/* Ensure modal buttons are styled consistently */
 .modal-content button {
     padding: 10px;
     margin: 5px 5px 0 0;

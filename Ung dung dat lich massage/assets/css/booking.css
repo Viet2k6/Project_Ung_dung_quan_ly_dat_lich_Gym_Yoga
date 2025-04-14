@@ -64,7 +64,6 @@ body {
     background-color: #2563eb; 
 }
 
-/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -93,7 +92,6 @@ td {
     color: #555555;
 }
 
-/* Footer Styling */
 footer {
     background-color: #1f2937;
     color: white;
@@ -102,7 +100,6 @@ footer {
     margin-top: 20px;
 }
 
-/* Modal Styling */
 .modal {
     display: none; 
     position: fixed;
@@ -114,7 +111,6 @@ footer {
     z-index: 9999;
 }
 
-/* Modal Content Styling */
 .modal-content {
     background-color: white;
     margin: 10% auto; 
@@ -126,7 +122,6 @@ footer {
     animation: fadeIn 0.3s ease-in-out; 
 }
 
-/* Modal Header */
 .modal-content h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
@@ -134,7 +129,6 @@ footer {
     color: #333333;
 }
 
-/* Close Button Styling */
 .close {
     position: absolute;
     top: 10px;
@@ -149,7 +143,6 @@ footer {
     color: #333333;
 }
 
-/* Form Labels and Inputs */
 .modal-content form label {
     display: block;
     margin-bottom: 5px;
@@ -174,7 +167,6 @@ footer {
     outline: none;
 }
 
-/* Submit Button */
 .modal-content form button {
     background-color: #3b82f6; 
     color: white; 
@@ -202,7 +194,6 @@ footer {
     }
 }
 
-/* Delete Confirmation Modal Styling */
 #deleteModal .modal-content {
     background-color: white;
     margin: 10% auto;
@@ -248,7 +239,6 @@ footer {
     background-color: #4b5563; 
 }
 
-/* Success Modal Styling */
 #successModal .modal-content {
     background-color: white;
     margin: 10% auto;

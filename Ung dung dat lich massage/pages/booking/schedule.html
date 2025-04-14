@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý lịch tập</title>
+    <link rel="stylesheet" href="/assets/css/booking.css">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="logo">GYM MANAGEMENT</span>
+        <div class="nav-links">
+            <a href="/index.html">Trang chủ</a>
+            <a href="./schedule.html">Lịch tập</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h2>Quản lý lịch tập</h2>
+            <button class="btn" id="openModal">Đặt lịch mới</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Lớp học</th>
+                    <th>Ngày tập</th>
+                    <th>Khung giờ</th>
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody id="scheduleList">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Thêm/Sửa Lịch Tập</h2>
+            <form>
+                <label>Lớp học:</label>
+                <select>
+                    <option>Gym</option>
+                    <option>Yoga</option>
+                    <option>Zumba</option>
+                </select>
+                <label>Ngày tập:</label>
+                <input type="date">
+                <label>Khung giờ:</label>
+                <input type="time">
+                <label>Họ tên:</label>
+                <input type="text">
+                <label>Email:</label>
+                <input type="email">
+                <button type="submit">Lưu</button>
+            </form>
+        </div>
+    </div>
+
+   <!-- Modal XÓA -->
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeDeleteModal">&times;</span>
+        <h2>Xác nhận xóa lịch</h2>
+        <p>Bạn có chắc chắn muốn xóa lịch này?</p>
+        <button class="btn" id="confirmDelete">Đồng ý</button>
+        <button class="btn" id="cancelDelete">Hủy</button>
+    </div>
+</div>
+
+<!-- Modal XÓA THÀNH CÔNG -->
+<div id="successModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeSuccessModal">&times;</span>
+        <h2>Thành công!</h2>
+        <p>Lịch đã được xóa thành công.</p>
+    </div>
+</div>
+
+<!-- Modal THÊM THÀNH CÔNG -->
+<div id="addedModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeAddedModal">&times;</span>
+        <h2>Thành công!</h2>
+        <p>Lịch mới đã được thêm thành công.</p>
+    </div>
+</div>
+
+<!-- Modal SỬA THÀNH CÔNG -->
+<div id="editedModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeEditedModal">&times;</span>
+        <h2>Thành công!</h2>
+        <p>Lịch tập đã được chỉnh sửa thành công.</p>
+    </div>
+</div>
+
+    <script src="/assets/js/booking.js"></script>
+</body>
+</html>

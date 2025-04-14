@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f7fc;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 360px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    display: block;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 3px;
+    display: block;
+}
+input.error {
+    border: 1px solid red;
+}
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Tablet 834x1194 */
+@media screen and (max-width: 834px) {
+    .container {
+        width: 80%;
+        padding: 15px;
+    }
+    input {
+        font-size: 14px;
+    }
+    button {
+        font-size: 14px;
+    }
+}
+
+/* Mobile 375x667 */
+@media screen and (max-width: 375px) {
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+    h1 {
+        font-size: 18px;
+    }
+    input {
+        font-size: 12px;
+        padding: 8px;
+    }
+    button {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

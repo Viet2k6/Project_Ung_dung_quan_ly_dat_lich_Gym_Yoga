@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../../assets/css/admin.css" />
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul>
+            <li><a href="" onclick="event.preventDefault(); showSection('schedule')">Quản lý lịch</a></li>
+            <li><a href="" onclick="event.preventDefault(); showSection('service')">Quản lý dịch vụ</a></li>
+            <li><a href="/index.html">Trang chủ</a></li>
+            <li><a href="/pages/auth/login.html" style="color: rgb(231, 58, 58);">Đăng xuất</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div id="schedule-section">
+            <h2>Thống kê lịch tập</h2>
+            <div class="card-container">
+                <div class="card card-gym">Tổng số lịch Gym<br><span>0</span></div>
+                <div class="card card-yoga">Tổng số lịch Yoga<br><span>0</span></div>
+                <div class="card card-zumba">Tổng số lịch Zumba<br><span>0</span></div>
+            </div>
+            <div class="table-container">
+                <h3>Bộ lọc</h3>
+                <div class="filter-container">
+                    <select>
+                        <option>Tất cả</option>
+                        <option>Gym</option>
+                        <option>Yoga</option>
+                        <option>Zumba</option>
+                    </select>
+                    <input type="text" placeholder="Tìm theo email">
+                    <input type="date">
+                </div>
+                <table>
+                    <tr>
+                        <th>Lớp học</th>
+                        <th>Ngày tập</th>
+                        <th>Khung giờ</th>
+                        <th>Họ tên</th>
+                        <th>Email</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="service-section" class="hidden">
+            <div class="service-header">
+                <h2>Quản lý Dịch vụ</h2>
+                <button id="addServiceBtn">Thêm dịch vụ mới</button>
+            </div>
+            <div class="table-container">
+                <table id="serviceTable">
+                    <thead>
+                        <tr>
+                            <th>Tên dịch vụ</th>
+                            <th>Mô tả</th>
+                            <th>Hình ảnh</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Modal Thêm/Sửa Lịch -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">×</span>
+                <h2>Chỉnh sửa Lịch Tập</h2>
+                <form>
+                    <label>Lớp học:</label>
+                    <select>
+                        <option>Gym</option>
+                        <option>Yoga</option>
+                        <option>Zumba</option>
+                    </select>
+                    <label>Ngày tập:</label>
+                    <input type="date">
+                    <label>Khung giờ:</label>
+                    <input type="time">
+                    <label>Họ tên:</label>
+                    <input type="text">
+                    <label>Email:</label>
+                    <input type="email">
+                    <button type="submit">Lưu</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal Xác nhận Xóa -->
+        <div id="deleteModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeDeleteModal">×</span>
+                <h2>Xác nhận xóa lịch</h2>
+                <p>Bạn có chắc chắn muốn xóa lịch này?</p>
+                <button class="btn" id="confirmDelete">Đồng ý</button>
+                <button class="btn" id="cancelDelete">Hủy</button>
+            </div>
+        </div>
+
+        <!-- Modal Thành công -->
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeSuccessModal">×</span>
+                <h2>Thành công!</h2>
+                <p>Lịch đã được xóa thành công.</p>
+            </div>
+        </div>
+
+        <!-- Modal SỬA THÀNH CÔNG -->
+        <div id="editedModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeEditedModal">×</span>
+                <h2>Thành công!</h2>
+                <p>Lịch tập đã được chỉnh sửa thành công.</p>
+            </div>
+        </div>
+
+        <!-- Modal Thêm/Sửa Dịch vụ -->
+        <div id="serviceModal" class="modal">
+            <div class="modal-content">
+                <h3 id="serviceModalTitle">Thêm dịch vụ</h3>
+                <input type="text" id="serviceName" placeholder="Tên dịch vụ">
+                <input type="text" id="serviceDescription" placeholder="Mô tả">
+                <input type="text" id="serviceImage" placeholder="Link hình ảnh">
+                <div id="imagePreview">
+                    <img id="previewImg" alt="Xem trước ảnh">
+                </div>
+                <button class="save-btn" id="saveService">Lưu</button>
+                <button class="cancel-btn" id="cancelService">Hủy</button>
+            </div>
+        </div>
+
+        <!-- Modal Xác nhận Xóa Dịch vụ -->
+        <div id="confirmModal" class="modal">
+            <div class="modal-content">
+                <h3>Xác nhận</h3>
+                <p id="confirmText"></p>
+                <button class="save-btn" id="confirmYes">Có</button>
+                <button class="cancel-btn" id="confirmNo">Không</button>
+            </div>
+        </div>
+
+        <!-- Modal Thông báo -->
+        <div id="messageModal" class="modal">
+            <div class="modal-content">
+                <h3>Thông báo</h3>
+                <p id="messageText"></p>
+                <button class="save-btn" id="closeMessage">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/admin.js"></script>
+</body>
+</html>

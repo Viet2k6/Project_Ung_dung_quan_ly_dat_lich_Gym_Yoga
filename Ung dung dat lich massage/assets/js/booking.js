@@ -1,6 +1,6 @@
 const scheduleData = [
-    { className: "Gym", date: "2025-04-01", time: "10:00", name: "Nguyễn Văn A", email: "a123@gmail.com" },
-    { className: "Yoga", date: "2025-04-02", time: "14:00", name: "Trần Thị B", email: "b456@gmail.com" },
+    { className: "Gym", date: "2025-04-01", time: "11:00", name: "Nguyễn Văn Nam", email: "vannam007@gmail.com" },
+    { className: "Yoga", date: "2025-04-23", time: "19:57", name: "Trần Thị Lan", email: "lantran2k3@gmail.com" },
 ];
 
 if (!localStorage.getItem("scheduleList")) {

@@ -120,32 +120,40 @@
 
         <div id="serviceModal" class="modal">
             <div class="modal-content">
+                <span class="close" id="closeServiceModal">×</span>
                 <h3 id="serviceModalTitle">Thêm dịch vụ</h3>
-                <input type="text" id="serviceName" placeholder="Tên dịch vụ">
-                <input type="text" id="serviceDescription" placeholder="Mô tả">
-                <input type="text" id="serviceImage" placeholder="Link hình ảnh">
-                <div id="imagePreview">
-                    <img id="previewImg" alt="Xem trước ảnh">
-                </div>
-                <button class="save-btn" id="saveService">Lưu</button>
-                <button class="cancel-btn" id="cancelService">Hủy</button>
+                <form id="serviceForm">
+                    <label for="serviceName">Tên dịch vụ:</label>
+                    <input type="text" id="serviceName" placeholder="Tên dịch vụ">
+                    <label for="serviceDescription">Mô tả:</label>
+                    <input type="text" id="serviceDescription" placeholder="Mô tả">
+                    <label for="serviceImage">Link hình ảnh:</label>
+                    <input type="text" id="serviceImage" placeholder="Link hình ảnh">
+                    <div id="imagePreview">
+                        <img id="previewImg" alt="Xem trước ảnh">
+                    </div>
+                    <button type="submit" class="save-btn" id="saveService">Lưu</button>
+                    <button type="button" class="cancel-btn" id="cancelService">Hủy</button>
+                </form>
             </div>
         </div>
 
         <div id="confirmModal" class="modal">
             <div class="modal-content">
-                <h3>Xác nhận</h3>
-                <p id="confirmText"></p>
-                <button class="save-btn" id="confirmYes">Có</button>
-                <button class="cancel-btn" id="confirmNo">Không</button>
+                <span class="close" id="closeConfirmModal">×</span>
+                <h3>Xác nhận xóa dịch vụ</h3>
+                <p id="confirmText">Bạn có chắc chắn muốn xóa dịch vụ này không?</p>
+                <button class="save-btn" id="confirmYes">Đồng ý</button>
+                <button class="cancel-btn" id="confirmNo">Hủy</button>
             </div>
         </div>
 
         <div id="messageModal" class="modal">
             <div class="modal-content">
+                <span class="close" id="closeMessage">×</span>
                 <h3>Thông báo</h3>
                 <p id="messageText"></p>
-                <button class="save-btn" id="closeMessage">Đóng</button>
+                <button class="save-btn" id="closeMessageBtn">Đóng</button>
             </div>
         </div>
     </div>

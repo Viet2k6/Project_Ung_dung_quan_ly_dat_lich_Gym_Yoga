@@ -88,7 +88,6 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* Tablet 834x1194 */
 @media screen and (max-width: 834px) {
     .container {
         width: 80%;
@@ -102,7 +101,6 @@ button:disabled {
     }
 }
 
-/* Mobile 375x667 */
 @media screen and (max-width: 375px) {
     .container {
         width: 90%;

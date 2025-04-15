@@ -26,7 +26,6 @@ function showSection(sectionId) {
         targetSection.classList.remove("hidden");
     } catch (error) {
         console.error("Error in showSection:", error);
-        // Optionally show an error message to the user
         const messageModal = document.getElementById("messageModal");
         const messageText = document.getElementById("messageText");
         if (messageModal && messageText) {
@@ -151,7 +150,7 @@ function editSchedule(index) {
             localStorage.setItem("scheduleList", JSON.stringify(scheduleList));
             fetchScheduleList();
             document.getElementById("modal").style.display = "none";
-            showEditedModal(); 
+            showEditedModal();
         }
     };
 }
@@ -251,7 +250,7 @@ function openServiceModal() {
         serviceDescription.value = "";
         serviceImage.value = "";
         previewImg.style.display = "none";
-        window.editServiceIndex = null; // Use a global variable to track the edit index
+        window.editServiceIndex = null;
     } catch (error) {
         showMessage("Lỗi khi mở modal dịch vụ!");
     }
@@ -268,14 +267,9 @@ function showConfirm(message, onYes) {
     try {
         const confirmModal = document.getElementById("confirmModal");
         const confirmText = document.getElementById("confirmText");
-        const confirmYes = document.getElementById("confirmYes");
 
         confirmModal.style.display = "block";
         confirmText.textContent = message;
-        confirmYes.onclick = function () {
-            onYes();
-            confirmModal.style.display = "none";
-        };
     } catch (error) {
         showMessage("Lỗi khi hiển thị xác nhận!");
     }
@@ -302,15 +296,26 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("closeSuccessModal").addEventListener("click", closeSuccessModal);
     document.getElementById("closeEditedModal").addEventListener("click", closeEditedModal);
 
+    document.getElementById("closeServiceModal").addEventListener("click", () => {
+        document.getElementById("serviceModal").style.display = "none";
+    });
+
+    document.getElementById("closeConfirmModal").addEventListener("click", () => {
+        document.getElementById("confirmModal").style.display = "none";
+    });
+
+    document.getElementById("closeMessageBtn").addEventListener("click", () => {
+        document.getElementById("messageModal").style.display = "none";
+    });
+
     const serviceTable = document.getElementById("serviceTable");
     const addServiceBtn = document.getElementById("addServiceBtn");
-    const serviceModal = document.getElementById("serviceModal");
+    const serviceForm = document.getElementById("serviceForm");
     const serviceImage = document.getElementById("serviceImage");
     const previewImg = document.getElementById("previewImg");
-    const saveService = document.getElementById("saveService");
     const cancelService = document.getElementById("cancelService");
+    const confirmYes = document.getElementById("confirmYes");
     const confirmNo = document.getElementById("confirmNo");
-    const closeMessage = document.getElementById("closeMessage");
 
     addServiceBtn.addEventListener("click", openServiceModal);
 
@@ -332,7 +337,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    saveService.addEventListener("click", function () {
+    serviceForm.addEventListener("submit", function (event) {
+        event.preventDefault();
         try {
             const serviceName = document.getElementById("serviceName");
             const serviceDescription = document.getElementById("serviceDescription");
@@ -366,7 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             saveServices(services);
             renderServiceList();
-            serviceModal.style.display = "none";
+            document.getElementById("serviceModal").style.display = "none";
         } catch (error) {
             showMessage("Lỗi khi lưu dịch vụ!");
         }
@@ -374,17 +380,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cancelService.addEventListener("click", function () {
         try {
-            serviceModal.style.display = "none";
+            document.getElementById("serviceModal").style.display = "none";
         } catch (error) {
             showMessage("Lỗi khi hủy modal dịch vụ!");
         }
     });
 
-    closeMessage.addEventListener("click", function () {
+    confirmYes.addEventListener("click", function () {
         try {
-            document.getElementById("messageModal").style.display = "none";
+            const services = getServices();
+            const index = parseInt(document.querySelector("#serviceTable .delete-btn[data-index]").dataset.index);
+            services.splice(index, 1);
+            saveServices(services);
+            renderServiceList();
+            document.getElementById("confirmModal").style.display = "none";
         } catch (error) {
-            showMessage("Lỗi khi đóng thông báo!");
+            showMessage("Lỗi khi xóa dịch vụ!");
         }
     });
 
@@ -423,6 +434,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     services.splice(index, 1);
                     saveServices(services);
                     renderServiceList();
+                    document.getElementById("confirmModal").style.display = "none";
                 });
             }
         } catch (error) {

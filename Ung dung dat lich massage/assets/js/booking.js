@@ -135,14 +135,12 @@ document.querySelector("form").addEventListener("submit", event => {
 
     if (validateSchedule(schedule, scheduleList, currentEditIndex)) {
         if (currentEditIndex === null) {
-            // Thêm mới
             scheduleList.push(schedule);
             localStorage.setItem("scheduleList", JSON.stringify(scheduleList));
             fetchScheduleList();
             hideModal("modal");
             showModal("addedModal");
         } else {
-            // Sửa
             scheduleList[currentEditIndex] = schedule;
             localStorage.setItem("scheduleList", JSON.stringify(scheduleList));
             fetchScheduleList();
